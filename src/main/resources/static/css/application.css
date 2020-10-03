@@ -1,0 +1,28 @@
+.video-icon-label {
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	padding-top: 5px;
+}
+
+.video-icon {
+	width: 300px;
+	height: auto;
+	max-height: 300px;
+	padding-bottom: 30px;
+}
+
+@media (max-width:1300px) and (min-width:1200px) {
+  .video-icon {
+    width: 250px;
+    height: 180px;
+  }
+}
+
+.title-div {
+	display: block;
+	width: 100%;
+	height: 100px;
+	line-height: 100px;
+	text-align: center;
+}
