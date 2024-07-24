@@ -51,7 +51,7 @@ public class VideoController {
 					System.out.println("PS4 or WII U: Sending all contents. Range request: " + ranges);
 					chunk = resource.contentLength();
 				} else {
-					chunk *= 5;
+					chunk *= 10;
 				}
 			}
 			

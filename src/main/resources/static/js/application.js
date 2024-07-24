@@ -133,9 +133,9 @@ var mainFunction =
 		$(mainFunction.elements.container).css("display", "-ms-flexbox");
 		$(mainFunction.elements.container).css("display", "-webkit-flex");
 		$(mainFunction.elements.container).css("display", "flex");
-		$(mainFunction.elements.videoPlayerContainer).width("648");
-		$(mainFunction.elements.videoPlayerContainer).height("350");
-		$(mainFunction.elements.videoContainer).height("310");
+		$(mainFunction.elements.videoPlayerContainer).width("1296");
+		$(mainFunction.elements.videoPlayerContainer).height("700");
+		$(mainFunction.elements.videoContainer).height("660");
 		$(mainFunction.elements.progress).width( $(mainFunction.elements.playerContainer).width() - 223 );
 		$(mainFunction.elements.progressBackground).width( $(mainFunction.elements.playerContainer).width() - 223 - 40 );		
 		$(mainFunction.elements.progressHidden).width( $(mainFunction.elements.playerContainer).width() - 223 - 40 );		

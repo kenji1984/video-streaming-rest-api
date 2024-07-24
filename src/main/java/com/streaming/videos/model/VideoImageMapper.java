@@ -7,7 +7,6 @@ import java.util.List;
 import java.util.Map;
 
 public class VideoImageMapper {
-	private String videoPath;
 	private Map<String, VideoFile> videoFiles;
 	
 	private VideoImageMapper() {};
@@ -28,7 +27,6 @@ public class VideoImageMapper {
 	
 	// inefficient but only I'll be using so who cares.
 	public void initialize(String videoPath) {
-		this.videoPath = videoPath;
 		videoFiles = new HashMap<>();
 		System.out.println(videoPath + "/videos");
 		File[] videos = new File(videoPath + "/videos").listFiles();
@@ -57,14 +55,14 @@ public class VideoImageMapper {
 		return "default.png";
 	}
 	
-	public List<VideoFile> listVideos() {
+	public List<VideoFile> listVideos(String videoPath) {
 		if (videoFiles == null) {
 			initialize(videoPath);
 		}
 		return new ArrayList<>(videoFiles.values());
 	}
 	
-	public VideoFile findVideo(String videoName) {
+	public VideoFile findVideo(String videoPath, String videoName) {
 		if (videoFiles == null) {
 			initialize(videoPath);
 		}

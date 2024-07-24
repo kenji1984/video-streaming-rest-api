@@ -8,9 +8,11 @@
     <link rel="stylesheet" href="css/application.css">
 </head>
 <body>
-    <h1>Video Streaming Testing</h1>
-    <br><br>
     <div class="container-fluid">
+    	<form class="w-100 pt-5 pb-3 text-center" method="get" action="search">
+		    <input id="searchText" name="searchText" type="text" value="${searchText}"/>
+			<input type="submit" value="Search"/>
+    	</form>
     	<c:forEach var="video" varStatus="status" items="${videos}" begin="0" step="1">
     		<c:if test="${status.index % 4 == 0}">
     			<div class="row">			
@@ -23,6 +25,41 @@
     			</div>			
 			</c:if>
 		</c:forEach>
+		
+		<nav aria-label="Page navigation example" class="w-100">
+		  <ul class="pagination justify-content-center">
+			<c:if test="${currentPage == startPage}">
+			  <li class="page-item disabled"><a class="page-link" href="#">Previous</a><li class="page-item">
+	  		</c:if>
+	  		<c:if test="${currentPage > startPage}">
+			  <li class="page-item"><a class="page-link" href="list?page=${currentPage-1}">Previous</a><li class="page-item">
+	  		</c:if>
+	  		
+		      
+		    </li>
+		    
+		  	<c:forEach begin="${startPage}" end="${endPage}" var="page">
+		  		<c:if test="${page == currentPage}">
+			  		<li class="page-item active">
+			  			<a class="page-link" href="list?page=${page}">${page}</a>
+			  		</li>
+		  		</c:if>
+		  		<c:if test="${page != currentPage}">
+			  		<li class="page-item">
+			  			<a class="page-link" href="list?page=${page}">${page}</a>
+			  		</li>
+		  		</c:if>
+	  		</c:forEach>
+	  		
+		  	
+			<c:if test="${currentPage == endPage}">
+			  <li class="page-item disabled"><a class="page-link" href="#">Next</a><li class="page-item">
+	  		</c:if>
+	  		<c:if test="${currentPage < endPage}">
+			  <li class="page-item"><a class="page-link" href="list?page=${currentPage+1}">Next</a><li class="page-item">
+	  		</c:if>
+		  </ul>
+		</nav>
     </div>
 </body>
 </html>
