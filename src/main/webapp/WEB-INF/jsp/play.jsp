@@ -13,7 +13,7 @@
 	<body>
 		<div class="container">
 			<h1>Now Playing: ${NOW_PLAYING.name}</h1>
-			<video id="media-video" poster="../../videos/img/${NOW_PLAYING.imageName}" controls width="60%" height="40%">
+			<video id="media-video" poster="../../videos/img/${NOW_PLAYING.imageName}" controls width="80%" height="60%">
 	            <source src="../../videos/${NOW_PLAYING.name}" type="video/mp4">
 	         </video>
 	         

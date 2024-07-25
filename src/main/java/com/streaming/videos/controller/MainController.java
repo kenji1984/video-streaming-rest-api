@@ -17,7 +17,6 @@ import com.streaming.videos.model.VideoImageMapper;
 public class MainController {
 	private static int ITEMS_PER_PAGE = 20;
 	private VideoImageMapper mapper = VideoImageMapper.getInstance();
-	private String searchText;
 	
 	@Value("${video.path}")
 	private String videoPath;
@@ -25,17 +24,17 @@ public class MainController {
 	@GetMapping({"/", "/home"}) 
 	public String home(Model model) {
 		mapper.initialize(videoPath);
-		return list(model, 1);
+		return list(model, 1, null);
 	}
 	
 	@GetMapping("/search")
 	public String search(Model model, @RequestParam("searchText") String searchText) {
-		this.searchText = searchText;
-		return list(model, 1);
+		return list(model, 1, searchText);
 	}
 	
 	@GetMapping("/list")
-	public String list(Model model, @RequestParam(value = "page", required = false) Integer pageNum) {
+	public String list(Model model, @RequestParam(value = "page", required = false) Integer pageNum,
+			@RequestParam(value = "searchText", required = false) String searchText) {
 		List<VideoFile> videos = mapper.listVideos(videoPath).stream()
 				.filter(videoFile -> searchText == null || videoFile.getName().toUpperCase().contains(searchText.toUpperCase()))
 				.collect(Collectors.toList());
